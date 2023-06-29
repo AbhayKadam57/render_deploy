@@ -26,7 +26,7 @@ def handl_all_indices():
     data=[]
     for r in rows:
         td = r.select("td")
-        company = td[0].get_text()
+        company = td[0].select("span")[0].get_text()
         last_trade =td[1].get_text()
         day_chg = td[2].get_text()
         high=td[3].get_text()
@@ -36,5 +36,10 @@ def handl_all_indices():
         data.append({'company': company, 'last_trade': last_trade, 'day_chg': day_chg, 'high': high, 'low': low,'open':open,'prev_close':prev_close})
 
     json_data=(data)
-    
+
+    print(json_data)    
+
     return json_data
+
+
+handl_all_indices()
