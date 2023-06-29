@@ -6,6 +6,10 @@ from functions.yearhighlow import *
 
 app = FastAPI()
 
+@app.get("/")
+def read_welcome():
+    return{"status":200,"message":"Welcome to Stock api"}
+
 @app.get("/allindices")
 def read_root():
     list = handl_all_indices()
