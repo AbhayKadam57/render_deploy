@@ -25,21 +25,36 @@ def handl_top_stocks(cat,index):
 
     data=[]
 
+
+  
+
     for row in company_rows:
         text = row.get_text().replace("₹", "/")
         reframe = text.replace("b'", "")
         array = reframe.split("/")
         company_name = array[0]
-        market_price = array[1]
+        value = array[1]
+        pattern = r'(\d+\.\d{2})'
+        pattern_1 = r'\((\d+\.\d{2}%)'
+        match = re.search(pattern, value)
+        match_2=re.search(pattern_1, value)
+        if match:
+            value = match.group(1)
+            market_price=value
+        if match_2:
+            value1 = match_2.group(1)
+            per_chg=value1 
         f_w_low = array[2]
         f_w_high = array[3]
         data.append({
             "company_name": company_name,
-            "market_price": market_price,
+            "market_price":market_price,
+            "per_chg":per_chg,
             "f_w_low": f_w_low,
             "f_w_high": f_w_high
         })
 
+    print(data)
     return data
 
 handl_top_stocks("top-gainers","GIDXNIFMDCP100")
