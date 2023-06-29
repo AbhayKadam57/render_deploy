@@ -25,8 +25,8 @@ def handl_year_high(status):
     for r in rows:
         td =r.select("td")
         company_name= td[1].get_text()
-        price=td[2].get_text()
+        market_price=td[2].get_text()
         day_high_or_low=td[-1].get_text()
-        data.append({"company_name":company_name,"price":price,"day_high_or_low":day_high_or_low})
+        data.append({"company_name":company_name,"market_price":market_price,"day_high_or_low":day_high_or_low})
 
     return data
