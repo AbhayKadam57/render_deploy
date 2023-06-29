@@ -25,9 +25,6 @@ def handl_top_stocks(cat,index):
 
     data=[]
 
-
-  
-
     for row in company_rows:
         text = row.get_text().replace("₹", "/")
         reframe = text.replace("b'", "")
@@ -54,7 +51,5 @@ def handl_top_stocks(cat,index):
             "f_w_high": f_w_high
         })
 
-    print(data)
     return data
 
-handl_top_stocks("top-gainers","GIDXNIFMDCP100")

@@ -37,9 +37,5 @@ def handl_all_indices():
 
     json_data=(data)
 
-    print(json_data)    
-
     return json_data
 
-
-handl_all_indices()
