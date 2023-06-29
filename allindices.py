@@ -1,19 +1,23 @@
+import os
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlencode
 import json
 import re
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())
+
+API_KEY=os.getenv("API_KEY")
+
+URL=os.getenv("SCRAPE_URL")
 
 
 def handl_all_indices():
 
-    URL = "https://groww.in/indices"
-
-
-    params ={'api_key': '568da9e6d253489d078b9d29c83dfe54', 'url': 'https://groww.in/indices'}
+    params ={'api_key': f'{API_KEY}', 'url': 'https://groww.in/indices'}
 
     # Make the request using Scraper API
-    response = requests.get('http://api.scraperapi.com/', params=urlencode(params))
+    response = requests.get(f'{URL}', params=urlencode(params))
 
     soup = BeautifulSoup(response.content, "html.parser")
 
