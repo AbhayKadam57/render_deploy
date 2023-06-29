@@ -15,7 +15,7 @@ def handl_all_indices():
     # Make the request using Scraper API
     response = requests.get('http://api.scraperapi.com/', params=urlencode(params))
 
-    soup = BeautifulSoup(response.content, "html5lib")
+    soup = BeautifulSoup(response.content, "html.parser")
 
     rows = soup.select("tbody tr")
     data=[]
