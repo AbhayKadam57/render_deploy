@@ -15,10 +15,10 @@ def read_root():
     list = handl_all_indices()
     return list
 
-@app.get("/topstocks/{cat}/{index}")
-def read_top_stocks(cat, index):
-    list= handl_top_stocks(cat,index)
-    return list
+@app.get("/topstocks/{cat}")
+def read_top_stocks(cat,skip:int=0,limit:int=10):
+    list= handl_top_stocks(cat)
+    return list[skip:skip+limit]
 
 @app.get("/sector-wise-data/{sector}")
 def read_sector_wise_data(sector):
