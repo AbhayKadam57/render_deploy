@@ -52,4 +52,3 @@ def handl_stock_collection(cat):
             data.append({"company_name":name,"market_price":price,"per_chg":per_chg,"volume":volume,"market_cap":market_cap}) 
     return data
 
-print(handl_stock_collection("multibagger-stocks"))

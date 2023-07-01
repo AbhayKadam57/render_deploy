@@ -6,6 +6,7 @@ from functions.yearhighlow import *
 from functions.stocksbymovingavg import *
 from functions.themebasecollection import *
 from functions.stockcollection import *
+from functions.stockdetails import *
 
 app = FastAPI()
 
@@ -46,4 +47,10 @@ def read_theme_based_stocks(cat):
 @app.get("/stockcollection/{cat}")
 def read_stock_collection(cat):
     list=handl_stock_collection(cat)
+    return list
+
+
+@app.get("/stock-details/{stock}")
+def read_stock_details(stock):
+    list=handl_stock_details(stock)
     return list

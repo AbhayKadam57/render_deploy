@@ -1,0 +1,53 @@
+[
+  {
+    "stock_name": "Union Bank Of India Share Price",
+    "stock_profile": "Union Bank of India is an India-based banking company. The Company’s segments include Treasury Operations, Corporate and Wholesale Banking and Other Banking Operations. The Company offers products in three categories, including personal, corporate loans and international. Its personal products include accounts and deposits, loans, which includes retail, micro, small and medium enterprises (MSME), wealth management, financial schemes and lockers/other services. Its corporate loans include trade finance, working capital, line of credit, project financing, and channel finance. Its international services include non-resident Indian speedy and easy remittances, Internet Banking, international debit/credit cards, home loans, special deposit schemes, and online donation facility. It provides digital services, such as app banking, Internet banking, automated teller machine banking and immediate payment service (IMPS). It also provides foreign currency loans.",
+    "stock_img": "https://assets.upstox.com/content/dam/aem-content-integration/assets/images/logos/UNIONBANK/square_UNIONBANK_com.png",
+    "stock_price_chg": "+1.55 (+2.19%)",
+    "stock_recomend": "50% Buy 👍",
+    "stock_summary": [
+      { "Market Cap": "48,595.05 Crore" },
+      { "Open": "₹71.00" },
+      { "Close": "₹70.70" },
+      { "Circuit Range": "₹57- ₹84.80" },
+      { "Day Range": "₹70.80- ₹72.45" },
+      { "Year Range": "₹34.00- ₹96.40" },
+      { "Volume": "11,659,457" },
+      { "Avg. Traded": "₹71.68" }
+    ],
+    "stock_key_indices": [
+      { "P/E Ratio": "5.80 " },
+      { "P/B Ratio": "0.67 " },
+      { "ROE": "8.34 %" },
+      { "ROCE": "9.48 %" },
+      { "Dividend Yield": "4.15 %" },
+      { "Debt to equity": "0.78 Cr" }
+    ],
+    "stock_profitablity_ratio": [
+      { "NIM (Net Interest Margin)": "2.46 %" },
+      { "ROA (Return on Assets)": "0.46 %" },
+      { "Credit Deposit Ratio": "64.03 %" },
+      { "ROE (Return on Equity)": "8.34 %" },
+      { "Net profit margin": "7.70 %" },
+      { "EPS (Earnings per Share)": "7.66 " }
+    ],
+    "stock_operation_ratio": [
+      { "Gross NPA": "11.11 %" },
+      { "Net NPA": "3.68 %" },
+      { "CASA": "36.54 %" },
+      { "CAR": "14.52 " }
+    ],
+    "stock_valuation_ratio": [
+      { "P/E": "5.80 " },
+      { "P/B": "0.67 " },
+      { "Dividend Yield": "4.15 %" }
+    ],
+    "stock_holding": [
+      { "Promoters": "83.49 %" },
+      { "Foreign institutions-FII": "1.66 %" },
+      { "Other domestic institutions": "6.05 %" },
+      { "Retail and other": "6.56 %" },
+      { "Mutual Funds": "2.24 %" }
+    ]
+  }
+]
