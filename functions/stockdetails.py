@@ -7,6 +7,8 @@ import re
 import sys
 import html5lib
 from dotenv import load_dotenv, find_dotenv
+from functions.getstocksymbols_name import *
+from functions.Get_historical_data import *
 load_dotenv(find_dotenv())
 
 sys.stdout.reconfigure(encoding='utf-8')
@@ -19,7 +21,16 @@ def handl_stock_details(stock):
 
     # e.g-bandhan-bank-limited
 
-    params ={'api_key': f'{API_KEY}', 'url': f'https://upstox.com/stocks/{stock}-share-price'}
+    query= get_name_symbols(stock)
+
+    c_name=query['name']
+
+    symbol =query['symbol']
+
+    print(c_name)
+
+
+    params ={'api_key': f'{API_KEY}', 'url': f'https://upstox.com/stocks/{c_name}-share-price'}
 
     # Make the request using Scraper API
     response =requests.get(f'{URL}', params=urlencode(params))
@@ -143,9 +154,11 @@ def handl_stock_details(stock):
 
     # print(stock_holding)
 
+    historical_data=get_historical_data(symbol)
 
-
-    results =[{'stock_name':stock_name,"stock_profile":p,"stock_img":stock_img,"stock_price_chg":stock_price_chg,'stock_recomend':stock_recomend,"stock_summary":stock_summary,"stock_key_indices":stock_key_indices,"stock_profitablity_ratio":stock_profitablity_ratio,"stock_operation_ratio":stock_operational_ratio,"stock_valuation_ratio":stock_valuation_ratio,"stock_holding":stock_holding}]
+    results =[{'stock_name':stock_name,"stock_profile":p,"stock_img":stock_img,"stock_price_chg":stock_price_chg,'stock_recomend':stock_recomend,"stock_summary":stock_summary,"stock_key_indices":stock_key_indices,"stock_profitablity_ratio":stock_profitablity_ratio,"stock_operation_ratio":stock_operational_ratio,"stock_valuation_ratio":stock_valuation_ratio,"stock_holding":stock_holding,'historical_data':historical_data}]
 
 
     return results
+
+
