@@ -8,6 +8,7 @@ from functions.themebasecollection import *
 from functions.stockcollection import *
 from functions.stockdetails import *
 
+
 app = FastAPI()
 
 @app.get("/")
