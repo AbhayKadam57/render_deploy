@@ -156,7 +156,7 @@ def handl_stock_details(stock):
 
     historical_data=get_historical_data(symbol)
 
-    results =[{'stock_name':stock_name,"stock_profile":p,"stock_img":stock_img,"stock_price_chg":stock_price_chg,'stock_recomend':stock_recomend,"stock_summary":stock_summary,"stock_key_indices":stock_key_indices,"stock_profitablity_ratio":stock_profitablity_ratio,"stock_operation_ratio":stock_operational_ratio,"stock_valuation_ratio":stock_valuation_ratio,"stock_holding":stock_holding,'historical_data':historical_data}]
+    results =[{'stock_name':stock_name,'symbol':symbol,"stock_profile":p,"stock_img":stock_img,"stock_price":stock_price,"stock_price_chg":stock_price_chg,'stock_recomend':stock_recomend,"stock_summary":stock_summary,"stock_key_indices":stock_key_indices,"stock_profitablity_ratio":stock_profitablity_ratio,"stock_operation_ratio":stock_operational_ratio,"stock_valuation_ratio":stock_valuation_ratio,"stock_holding":stock_holding,'historical_data':historical_data}]
 
 
     return results

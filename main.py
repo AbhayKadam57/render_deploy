@@ -7,6 +7,7 @@ from functions.stocksbymovingavg import *
 from functions.themebasecollection import *
 from functions.stockcollection import *
 from functions.stockdetails import *
+from functions.getonefayhistory import *
 
 
 app = FastAPI()
@@ -54,4 +55,10 @@ def read_stock_collection(cat):
 @app.get("/stock-details/{stock}")
 def read_stock_details(stock):
     list=handl_stock_details(stock)
+    return list
+
+
+@app.get("/one-day-hist/{stock_symbol}")
+def read_one_day_hist(stock_symbol):
+    list = hadle_one_day_history(stock_symbol)
     return list

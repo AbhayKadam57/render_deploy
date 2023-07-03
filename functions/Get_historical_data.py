@@ -9,6 +9,10 @@ def get_historical_data(symbol):
     # 1 day ago
     one_day_ago = current_date - timedelta(days=1)
 
+    two_days_ago = current_date - timedelta(days=3)
+
+    weekday_number = one_day_ago.weekday()
+
     # 1 week ago
     one_week_ago = current_date - timedelta(weeks=1)
 
@@ -28,6 +32,7 @@ def get_historical_data(symbol):
     date_format = "%Y-%m-%d"
     current_date_formatted = current_date.strftime(date_format)
     one_day_ago_formatted = one_day_ago.strftime(date_format)
+    two_days_ago_formatted = two_days_ago.strftime(date_format)
     one_week_ago_formatted = one_week_ago.strftime(date_format)
     one_month_ago_formatted = one_month_ago.strftime(date_format)
     one_year_ago_formatted = one_year_ago.strftime(date_format)
@@ -38,7 +43,10 @@ def get_historical_data(symbol):
     stock_symbol = symbol+".NS"  # Example: Apple Inc. (AAPL)
 
     # Fetch historical data
-    data_one_day = yf.download(stock_symbol, start=one_day_ago_formatted, end=current_date_formatted,interval="1m")
+    # if weekday_number==5 or weekday_number==6:
+    #     data_one_day =  yf.download(stock_symbol, start=two_days_ago_formatted, end=current_date_formatted,interval="1m")
+    # else:
+    data_one_day =  yf.download(stock_symbol, period="1d",interval="1m")
     data_one_week = yf.download(stock_symbol, start=one_week_ago_formatted, end=current_date_formatted,interval="5m")
     data_month = yf.download(stock_symbol, start=one_month_ago_formatted, end=current_date_formatted,interval="30m")
     data_year = yf.download(stock_symbol, start=one_year_ago_formatted, end=current_date_formatted,interval="1d")
