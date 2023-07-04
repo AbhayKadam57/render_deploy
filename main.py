@@ -62,3 +62,28 @@ def read_stock_details(stock):
 def read_one_day_hist(stock_symbol):
     list = hadle_one_day_history(stock_symbol)
     return list
+
+@app.get("/one-week-hist/{stock_symbol}")
+def read_one_week_hist(stock_symbol):
+    list = hanle_one_week(stock_symbol)
+    return list
+
+@app.get("/one-month-hist/{stock_symbol}")
+def read_one_month_hist(stock_symbol):
+    list = hanle_one_month(stock_symbol)
+    return list
+
+@app.get("/one-year-hist/{stock_symbol}")
+def read_one_year_hist(stock_symbol):
+    list = handl_one_year(stock_symbol)
+    return list
+
+@app.get("/three-year-hist/{stock_symbol}")
+def read_three_year_hist(stock_symbol):
+    list = handl_three_year(stock_symbol)
+    return list
+
+@app.get("/five-year-hist/{stock_symbol}")
+def read_five_year_hist(stock_symbol):
+    list = handl_five_years(stock_symbol)
+    return list
