@@ -9,10 +9,21 @@ def get_name_symbols(query):
 
     search_results = collection_name.find({"$text": {"$search": f"\"{query}\""}})
 
-    for item in search_results:
-        symbol=item.get("symbol")
-        name=item.get("name").lower()
-        joined_name="-".join(name.split())
-    return {"name":joined_name,"symbol":symbol}
+    print(search_results)
+
+    # for item in search_results:
+    #     symbol=item.get("symbol")
+    #     name=item.get("name").lower()
+    #     joined_name="-".join(name.split())
+    # return {"name":joined_name,"symbol":symbol}
+
+    first_item = search_results[0]
+    symbol = first_item.get("symbol")
+    name = first_item.get("name").lower()
+    joined_name = "-".join(name.split())
+    result = {"name": joined_name, "symbol": symbol}
+
+    return result
         
+
 

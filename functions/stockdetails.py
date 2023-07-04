@@ -38,8 +38,11 @@ def handl_stock_details(stock):
     soup = BeautifulSoup(response.content, "html5lib")
 
     title =soup.select("title")
+    print(title)
 
-    stock_img= soup.select(".mr-12")[0].find("img")['src']
+    print()
+
+    stock_img= soup.select(".mr-12")[0].find("img")['src'] or ""
 
     # print(stock_img)
 
@@ -82,19 +85,22 @@ def handl_stock_details(stock):
 
     table_2 = soup.select(".list-unstyled.stock-summary-list")[1]
 
-    list_2 = table_2.select("li")
 
-    stock_key_indices=[]
+    if table_2 is not None:
 
-    for row in list_2:
+        list_2 = table_2.select("li") or[]
 
-        content = row.select("div")
-        data={content[0].text:content[1].get_text()}
-        stock_key_indices.append(data)
+        stock_key_indices=[]
+
+        for row in list_2:
+
+            content = row.select("div")
+            data={content[0].text:content[1].get_text()}
+            stock_key_indices.append(data)
 
     # print(stock_key_indices)
 
-    table_3 = soup.select(".stock-summary-wrap.profitability-content")[0]
+    table_3 = soup.select(".stock-summary-wrap.profitability-content")[1]
 
     list_3 = table_3.select("li")
 
@@ -154,9 +160,9 @@ def handl_stock_details(stock):
 
     # print(stock_holding)
 
-    historical_data=get_historical_data(symbol)
+    # historical_data=get_historical_data(symbol)
 
-    results =[{'stock_name':stock_name,'symbol':symbol,"stock_profile":p,"stock_img":stock_img,"stock_price":stock_price,"stock_price_chg":stock_price_chg,'stock_recomend':stock_recomend,"stock_summary":stock_summary,"stock_key_indices":stock_key_indices,"stock_profitablity_ratio":stock_profitablity_ratio,"stock_operation_ratio":stock_operational_ratio,"stock_valuation_ratio":stock_valuation_ratio,"stock_holding":stock_holding,'historical_data':historical_data}]
+    results =[{'stock_name':stock_name,'symbol':symbol,"stock_profile":p,"stock_img":stock_img,"stock_price":stock_price,"stock_price_chg":stock_price_chg,'stock_recomend':stock_recomend,"stock_summary":stock_summary,"stock_key_indices":stock_key_indices,"stock_profitablity_ratio":stock_profitablity_ratio,"stock_operation_ratio":stock_operational_ratio,"stock_valuation_ratio":stock_valuation_ratio,"stock_holding":stock_holding}]
 
 
     return results
