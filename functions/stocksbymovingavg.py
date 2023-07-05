@@ -35,7 +35,7 @@ def handl_dma_rsi(cat):
 
     data=[]
     for row in rows[1:]:
-
+        link=row["href"].split('/')[-1]
         name = row.select(".font-normal")[0].get_text()
         price = row.select(".text-brand-black.text-sm")[1].get_text()
         per_chg= row.select(".pl-1")[0].get_text()
@@ -45,8 +45,8 @@ def handl_dma_rsi(cat):
             data.append({"company_name":name,"market_price":price,"per_chg":per_chg,"volume":volume,"rsi":rsi}) 
         else:
            dma= row.select(".text-brand-black.text-sm")[-1].get_text() 
-           data.append({"company_name":name,"market_price":price,"per_chg":per_chg,"volume":volume,"dma":dma})            
+           data.append({"company_name":name,"link":link,"market_price":price,"per_chg":per_chg,"volume":volume,"dma":dma})            
     
     return data
 
-# handl_dma_rsi("daily-rsi14-below-30")
+# print(handl_dma_rsi("it-stocks"))

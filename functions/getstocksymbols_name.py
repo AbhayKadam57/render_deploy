@@ -9,7 +9,6 @@ def get_name_symbols(query):
 
     search_results = collection_name.find({"$text": {"$search": f"\"{query}\""}})
 
-    print(search_results)
 
     # for item in search_results:
     #     symbol=item.get("symbol")

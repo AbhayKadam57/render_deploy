@@ -28,8 +28,14 @@ def handl_themebase_stocks(cat):
     # response = requests.get('https://groww.in/indices')
     soup = BeautifulSoup(response.content, "html.parser")
 
+    title=soup.select("title")
+
+    print(title)
+
     # Find the table container
     table_container = soup.find('div', class_='flex flex-col w-3/4 flex-1')
+
+
 
     # Find all table rows
     rows = table_container.find_all('a', class_='border-b py-3 lg:pl-3 flex flex-col')
@@ -38,29 +44,33 @@ def handl_themebase_stocks(cat):
 
     data=[]
     for row in rows[1:]:
-
+        img = row.select('img')[0]["src"]
+        link=row["href"].split('/')[-1]
         name = row.select(".font-normal")[0].get_text()
         price = row.select(".text-brand-black.text-sm")[1].get_text()
         per_chg= row.select(".pl-1")[0].get_text()
         volume= row.select(".text-brand-black.text-sm")[2].get_text()
 
+        data.append({"company_name":name,"link":link,"market_price":price,"per_chg":per_chg,"volume":volume,"img":img}) 
 
-        string = cat
-        pattern = r"-in-buy"
-        matches = re.search(pattern, string)
-        pattern_1=r"-high-return"
-        matches_1 = re.search(pattern_1,string)
-        pattern_2=r"-high-dividend"
-        matches_2= re.search(pattern_2,string)
+        # string = cat
+        # pattern = r"-in-buy"
+        # matches = re.search(pattern, string)
+        # pattern_1=r"-high-return"
+        # matches_1 = re.search(pattern_1,string)
+        # pattern_2=r"-high-dividend"
+        # matches_2= re.search(pattern_2,string)
 
-        if matches:
-            analyst_rating= row.select(".text-brand-black.text-sm")[-1].get_text() 
-            data.append({"company_name":name,"market_price":price,"per_chg":per_chg,"volume":volume,"analyst_rating":analyst_rating})   
-        if matches_1:
-            one_year_ret= row.select(".text-brand-black.text-sm")[-1].get_text() 
-            data.append({"company_name":name,"market_price":price,"per_chg":per_chg,"volume":volume,"one_year_ret":one_year_ret})
-        if matches_2:
-            dividend_yeild= row.select(".text-brand-black.text-sm")[-1].get_text() 
-            data.append({"company_name":name,"market_price":price,"per_chg":per_chg,"volume":volume,"dividend_yeild":dividend_yeild})    
+        # if matches:
+        #     analyst_rating= row.select(".text-brand-black.text-sm")[-1].get_text() 
+        #     data.append({"company_name":name,"market_price":price,"per_chg":per_chg,"volume":volume,"analyst_rating":analyst_rating})   
+        # if matches_1:
+        #     one_year_ret= row.select(".text-brand-black.text-sm")[-1].get_text() 
+        #     data.append({"company_name":name,"market_price":price,"per_chg":per_chg,"volume":volume,"one_year_ret":one_year_ret})
+        # if matches_2:
+        #     dividend_yeild= row.select(".text-brand-black.text-sm")[-1].get_text() 
+        #     data.append({"company_name":name,"market_price":price,"per_chg":per_chg,"volume":volume,"dividend_yeild":dividend_yeild})
+    
     return data
+
 

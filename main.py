@@ -9,6 +9,7 @@ from functions.themebasecollection import *
 from functions.stockcollection import *
 from functions.stockdetails import *
 from functions.getonefayhistory import *
+from functions.getTopGainers import *
 
 
 app = FastAPI()
@@ -54,6 +55,8 @@ def read_stocks_rsi_dma(cat):
     list=handl_dma_rsi(cat)
     return list
 
+
+#get all it,pharma etc stock
 @app.get("/theme-based-stocks/{cat}")
 def read_theme_based_stocks(cat):
     list=handl_themebase_stocks(cat)
@@ -68,6 +71,14 @@ def read_stock_collection(cat):
 @app.get("/stock-details/{stock}")
 def read_stock_details(stock):
     list=handl_stock_details(stock)
+    return list
+
+
+
+#get all gainers, losers , 52 week high low
+@app.get("/all-top-stocks/{cat}")
+def read_all_top_stocks(cat):
+    list=hadle_top_rated(cat)
     return list
 
 
