@@ -17,7 +17,7 @@ API_KEY=os.getenv("API_KEY")
 
 URL=os.getenv("SCRAPE_URL")
 
-def handl_stock_details(stock):
+def handl_stock_details(stock,stock_code):
 
     # e.g-bandhan-bank-limited
 
@@ -30,7 +30,7 @@ def handl_stock_details(stock):
     print(c_name)
 
 
-    params ={'api_key': f'{API_KEY}', 'url': f'https://upstox.com/stocks/{c_name}-share-price'}
+    params ={'api_key': f'{API_KEY}', 'url': f'https://upstox.com/stocks/{stock_code}'}
 
     # Make the request using Scraper API
     response =requests.get(f'{URL}', params=urlencode(params))

@@ -53,4 +53,4 @@ def hadle_top_rated(cat):
 
     return data
 
-hadle_top_rated("top-gainers")
+hadle_top_rated("top-losers")

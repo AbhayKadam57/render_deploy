@@ -68,9 +68,9 @@ def read_stock_collection(cat):
     return list
 
 
-@app.get("/stock-details/{stock}")
-def read_stock_details(stock):
-    list=handl_stock_details(stock)
+@app.get("/stock-details/{stock}/{stock_code}")
+def read_stock_details(stock,stock_code):
+    list=handl_stock_details(stock,stock_code)
     return list
 
 
