@@ -7,7 +7,7 @@ def get_name_symbols(query):
     dbname = get_database()
     collection_name = dbname["stocksdetails"]
 
-    search_results = collection_name.find({"$text": {"$search": f"\"{query}\""}})
+    search_results = collection_name.find({"$text": {"$search": f"{query}"}})
 
 
     # for item in search_results:
