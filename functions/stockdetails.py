@@ -29,7 +29,6 @@ def handl_stock_details(stock,stock_code):
 
     print(c_name)
 
-
     params ={'api_key': f'{API_KEY}', 'url': f'https://upstox.com/stocks/{stock_code}'}
 
     # Make the request using Scraper API
@@ -40,7 +39,9 @@ def handl_stock_details(stock,stock_code):
     title =soup.select("title")
     print(title)
 
-    print()
+    stock_symbol=soup.select("#code")[0].get_text().split(" ")[0]
+
+    print(stock_symbol)
 
     stock_img= soup.select(".mr-12")[0].find("img")['src'] or ""
 
@@ -162,9 +163,8 @@ def handl_stock_details(stock,stock_code):
 
     # historical_data=get_historical_data(symbol)
 
-    results =[{'stock_name':stock_name,'symbol':symbol,"stock_profile":p,"stock_img":stock_img,"stock_price":stock_price,"stock_price_chg":stock_price_chg,'stock_recomend':stock_recomend,"stock_summary":stock_summary,"stock_key_indices":stock_key_indices,"stock_profitablity_ratio":stock_profitablity_ratio,"stock_operation_ratio":stock_operational_ratio,"stock_valuation_ratio":stock_valuation_ratio,"stock_holding":stock_holding}]
+    results =[{'stock_name':stock_name,'symbol':stock_symbol,"stock_profile":p,"stock_img":stock_img,"stock_price":stock_price,"stock_price_chg":stock_price_chg,'stock_recomend':stock_recomend,"stock_summary":stock_summary,"stock_key_indices":stock_key_indices,"stock_profitablity_ratio":stock_profitablity_ratio,"stock_operation_ratio":stock_operational_ratio,"stock_valuation_ratio":stock_valuation_ratio,"stock_holding":stock_holding}]
 
 
     return results
-
 

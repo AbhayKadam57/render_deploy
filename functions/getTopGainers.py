@@ -52,5 +52,3 @@ def hadle_top_rated(cat):
         data.append({"company_name":company_name,"short_name":link,"market_price":market_price,"fifty_week_high":fifty_week_high,"fifty_week_low":fifty_week_low})
 
     return data
-
-hadle_top_rated("top-losers")

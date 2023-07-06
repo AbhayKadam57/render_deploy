@@ -10,6 +10,7 @@ from functions.stockcollection import *
 from functions.stockdetails import *
 from functions.getonefayhistory import *
 from functions.getTopGainers import *
+from functions.getStockDetails import *
 
 
 app = FastAPI()
@@ -110,4 +111,9 @@ def read_three_year_hist(stock_symbol):
 @app.get("/five-year-hist/{stock_symbol}")
 def read_five_year_hist(stock_symbol):
     list = handl_five_years(stock_symbol)
+    return list
+
+@app.get("/stock-details-all/{name}")
+def read_stock_all_details(name):
+    list = get_stock_details(name)
     return list
