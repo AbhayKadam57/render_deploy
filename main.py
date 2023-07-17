@@ -11,6 +11,8 @@ from functions.stockdetails import *
 from functions.getonefayhistory import *
 from functions.getTopGainers import *
 from functions.getStockDetails import *
+from functions.getAllmutualFund import *
+from functions.getMutualFundGraph import *
 
 
 app = FastAPI()
@@ -30,6 +32,9 @@ app.add_middleware(
 @app.get("/")
 def read_welcome():
     return{"status":200,"message":"Welcome to Stock api"}
+
+
+#Stock Apis
 
 @app.get("/allindices")
 def read_root():
@@ -116,4 +121,17 @@ def read_five_year_hist(stock_symbol):
 @app.get("/stock-details-all/{name}")
 def read_stock_all_details(name):
     list = get_stock_details(name)
+    return list
+
+
+#Mutual fund apis
+
+@app.get("/get-mutual-fund/{mutualfund}")
+def read_all_mutual_fund_data(mutualfund):
+    list= handl_all_MutualFund_data(mutualfund)
+    return list
+
+@app.get("/get-mutual-fund-history/{code}")
+def read_all_mutual_fund_history(code):
+    list= getMutualfund_history_chart(code)
     return list

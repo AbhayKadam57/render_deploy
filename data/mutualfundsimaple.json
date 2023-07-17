@@ -1,0 +1,94 @@
+[
+  {
+    "scheme_name": "Quant Small Cap Fund Direct Plan Growth",
+    "day_chg": "-1.09%",
+    "fundamentals": [
+      { " NAV: 13 Jul 2023": "₹173.81" },
+      { "Min. SIP amount": "₹1,000" },
+      { "Rating": "5" },
+      { "Fund size": "₹5,565.26Cr" }
+    ],
+    "Holdings": [
+      {
+        "name": "Reliance Industries Ltd.",
+        "sector": "Energy",
+        "instrument": "Equity",
+        "assests": "9.6%"
+      },
+      {
+        "name": "HDFC Bank Ltd.",
+        "sector": "Financial",
+        "instrument": "Equity",
+        "assests": "7.7%"
+      },
+      {
+        "name": "IRB Infrastructure Developers Ltd.",
+        "sector": "Construction",
+        "instrument": "Equity",
+        "assests": "3.4%"
+      },
+      {
+        "name": "Bikaji Foods International Ltd.",
+        "sector": "Consumer Staples",
+        "instrument": "Equity",
+        "assests": "3.4%"
+      },
+      {
+        "name": "Punjab National Bank",
+        "sector": "Financial",
+        "instrument": "Equity",
+        "assests": "3.3%"
+      },
+      {
+        "name": "Jindal Stainless Ltd.",
+        "sector": "Metals & Mining",
+        "instrument": "Equity",
+        "assests": "2.9%"
+      },
+      {
+        "name": "Usha Martin Ltd.",
+        "sector": "Metals & Mining",
+        "instrument": "Equity",
+        "assests": "2.8%"
+      },
+      {
+        "name": "Arvind Ltd.",
+        "sector": "Textiles",
+        "instrument": "Equity",
+        "assests": "2.7%"
+      },
+      {
+        "name": "Just Dial Ltd.",
+        "sector": "Services",
+        "instrument": "Equity",
+        "assests": "2.3%"
+      },
+      {
+        "name": "The India Cements Ltd.",
+        "sector": "Construction",
+        "instrument": "Equity",
+        "assests": "2.0%"
+      }
+    ],
+    "returns": [
+      { "one_year_return": "39.0%" },
+      { "three_year_return": "57.4%" },
+      { "five_year_return": "27.4%" },
+      { "All_return": "16.7%" }
+    ],
+    "ration": [
+      { "ExpenseRation": "Expense ratio: 0.62%Inclusive of GST" },
+      { "ExitLoad": "Exit loadExit load of 1% if redeemed within 1 year" },
+      { "StampDuty": "Stamp duty0.005% (from July 1st, 2020)" },
+      {
+        "Tax": "Tax implicationReturns are taxed at 15%, if you redeem before one year. After 1 year, you are required to pay LTCG tax of 10% on returns of Rs 1 lakh+ in a financial year. "
+      }
+    ],
+    "fundmanagers": [
+      "Sanjeev Sharma",
+      "Vasav Sahgal",
+      "Ankit A Pande",
+      "Chandramouli Alla"
+    ]
+  }
+]

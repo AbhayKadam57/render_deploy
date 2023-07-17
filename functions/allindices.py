@@ -23,6 +23,7 @@ def handl_all_indices():
     soup = BeautifulSoup(response.content, "html.parser")
 
     rows = soup.select("tbody tr")
+    
     data=[]
     for r in rows:
         td = r.select("td")
@@ -37,4 +38,6 @@ def handl_all_indices():
 
     json_data=(data)
 
+
     return json_data
+
