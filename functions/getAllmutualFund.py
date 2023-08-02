@@ -30,9 +30,9 @@ def handl_all_MutualFund_data(mutualfund, code):
 
     title = soup.select("title")
 
-    scheme_name = soup.select(".mfh239SchemeName.fw400.fs24")[0].get_text()
+    scheme_name = soup.select(".mfh239SchemeName.display24")[0].get_text()
 
-    day_chg = soup.select(".mfh239OneDay.fs14")[0].get_text()
+    day_chg = soup.select(".mfh239OneDay")[0].get_text()
 
     nav_today = soup.select(".tb10Table.fd12Table")
 
