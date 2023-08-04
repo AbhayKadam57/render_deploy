@@ -13,6 +13,7 @@ from functions.getTopGainers import *
 from functions.getStockDetails import *
 from functions.getAllmutualFund import *
 from functions.getMutualFundGraph import *
+import asyncio
 
 
 app = FastAPI()

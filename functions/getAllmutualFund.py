@@ -7,6 +7,7 @@ import re
 import sys
 from dotenv import load_dotenv, find_dotenv
 
+
 load_dotenv(find_dotenv())
 
 sys.stdout.reconfigure(encoding="utf-8")
@@ -31,6 +32,8 @@ def handl_all_MutualFund_data(mutualfund, code):
     title = soup.select("title")
 
     scheme_name = soup.select(".mfh239SchemeName.display24")[0].get_text()
+
+    # scheme_name = "Abhay"
 
     day_chg = soup.select(".mfh239OneDay")[0].get_text()
 
