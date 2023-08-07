@@ -23,10 +23,10 @@ def get_historical_data(symbol):
     one_year_ago = current_date - timedelta(days=365)
 
     # 3 years ago (approximation)
-    three_years_ago = current_date - timedelta(days=3*365)
+    three_years_ago = current_date - timedelta(days=3 * 365)
 
     # 5 years ago (approximation)
-    five_years_ago = current_date - timedelta(days=5*365)
+    five_years_ago = current_date - timedelta(days=5 * 365)
 
     # Formatting the dates
     date_format = "%Y-%m-%d"
@@ -40,34 +40,58 @@ def get_historical_data(symbol):
     five_years_ago_formatted = five_years_ago.strftime(date_format)
 
     # Define the stock symbol or ticker
-    stock_symbol = symbol+".NS"  # Example: Apple Inc. (AAPL)
+    stock_symbol = symbol + ".NS"  # Example: Apple Inc. (AAPL)
 
     # Fetch historical data
     # if weekday_number==5 or weekday_number==6:
     #     data_one_day =  yf.download(stock_symbol, start=two_days_ago_formatted, end=current_date_formatted,interval="1m")
     # else:
-    data_one_day =  yf.download(stock_symbol, period="1d",interval="1m")
-    data_one_week = yf.download(stock_symbol, start=one_week_ago_formatted, end=current_date_formatted,interval="5m")
-    data_month = yf.download(stock_symbol, start=one_month_ago_formatted, end=current_date_formatted,interval="30m")
-    data_year = yf.download(stock_symbol, start=one_year_ago_formatted, end=current_date_formatted,interval="1d")
-    data_three_year = yf.download(stock_symbol, start=three_years_ago_formatted, end=current_date_formatted,interval="5d")
-    data_five_year = yf.download(stock_symbol, start=five_years_ago_formatted, end=current_date_formatted,interval="1wk")
+    data_one_day = yf.download(stock_symbol, period="1d", interval="1m")
+    data_one_week = yf.download(
+        stock_symbol,
+        start=one_week_ago_formatted,
+        end=current_date_formatted,
+        interval="5m",
+    )
+    data_month = yf.download(
+        stock_symbol,
+        start=one_month_ago_formatted,
+        end=current_date_formatted,
+        interval="30m",
+    )
+    data_year = yf.download(
+        stock_symbol,
+        start=one_year_ago_formatted,
+        end=current_date_formatted,
+        interval="1d",
+    )
+    data_three_year = yf.download(
+        stock_symbol,
+        start=three_years_ago_formatted,
+        end=current_date_formatted,
+        interval="5d",
+    )
+    data_five_year = yf.download(
+        stock_symbol,
+        start=five_years_ago_formatted,
+        end=current_date_formatted,
+        interval="1wk",
+    )
 
     # Convert DataFrame to dictionary
-    one_day_history =data_one_day.to_dict() or {}
-    one_week_history =data_one_week.to_dict()
-    one_month_history =data_month.to_dict()
-    one_year_history =data_year.to_dict()
-    three_years_history =data_three_year.to_dict()
-    five_years_history =data_five_year.to_dict()
+    one_day_history = data_one_day.to_dict() or {}
+    one_week_history = data_one_week.to_dict()
+    one_month_history = data_month.to_dict()
+    one_year_history = data_year.to_dict()
+    three_years_history = data_three_year.to_dict()
+    five_years_history = data_five_year.to_dict()
 
     # Print the historical data as a dictionary
     return {
-
-        "1day":one_day_history["Close"],
-        "1week":one_week_history["Close"],
-        "1month":one_month_history["Close"],
-        "1year":one_year_history["Close"],
-        "3year":three_years_history["Close"],
-        "5year":five_years_history["Close"]
+        "1day": one_day_history["Close"],
+        "1week": one_week_history["Close"],
+        "1month": one_month_history["Close"],
+        "1year": one_year_history["Close"],
+        "3year": three_years_history["Close"],
+        "5year": five_years_history["Close"],
     }

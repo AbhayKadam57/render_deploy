@@ -5,6 +5,7 @@ from urllib.parse import urlencode
 import json
 import re
 import sys
+import aiohttp
 from dotenv import load_dotenv, find_dotenv
 
 
@@ -17,25 +18,34 @@ API_KEY = os.getenv("API_KEY")
 URL = os.getenv("SCRAPE_URL")
 
 
-def handl_all_MutualFund_data(mutualfund, code):
+async def fetch_html(url, params):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url, params=params) as response:
+            return await response.text()
+
+
+async def handl_all_MutualFund_data(mutualfund, code):
     params = {
         "api_key": f"{API_KEY}",
         "url": f"https://groww.in/mutual-funds/{mutualfund}",
     }
 
     # Make the request using Scraper API
-    response = requests.get(f"{URL}", params=urlencode(params))
+    response = requests.get(f"https://groww.in/mutual-funds/{mutualfund}")
+    # response_content = await fetch_html(URL, params)
     # response = requests.get('https://groww.in/indices')
 
     soup = BeautifulSoup(response.content, "html.parser")
 
     title = soup.select("title")
 
-    scheme_name = soup.select(".mfh239SchemeName.display24")[0].get_text()
+    scheme_name = soup.find("h1", class_="mfh239SchemeName display24").get_text()
+    # scheme_name_1 = soup.find("h1", class_="mfh239SchemeName display24").get_text()
+    # print(scheme_name_1)
 
     # scheme_name = "Abhay"
 
-    day_chg = soup.select(".mfh239OneDay")[0].get_text()
+    day_chg = soup.find(class_="mfh239OneDay").get_text()
 
     nav_today = soup.select(".tb10Table.fd12Table")
 

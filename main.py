@@ -38,8 +38,8 @@ def read_welcome():
 
 
 @app.get("/allindices")
-def read_root():
-    list = handl_all_indices()
+async def read_root():
+    list = await handl_all_indices()
     return list
 
 
@@ -88,8 +88,8 @@ def read_stock_details(stock, stock_code):
 
 # get all gainers, losers , 52 week high low
 @app.get("/all-top-stocks/{cat}")
-def read_all_top_stocks(cat):
-    list = hadle_top_rated(cat)
+async def read_all_top_stocks(cat):
+    list = await hadle_top_rated(cat)
     return list
 
 
@@ -139,8 +139,8 @@ def read_stock_all_details(name):
 
 
 @app.get("/get-mutual-fund/{mutualfund}/{code}")
-def read_all_mutual_fund_data(mutualfund, code):
-    list = handl_all_MutualFund_data(mutualfund, code)
+async def read_all_mutual_fund_data(mutualfund, code):
+    list = await handl_all_MutualFund_data(mutualfund, code)
     return list
 
 
