@@ -39,8 +39,13 @@ async def handl_all_MutualFund_data(mutualfund, code):
 
     title = soup.select("title")
 
-    scheme_name = soup.find("h1", class_="mfh239SchemeName display24").get_text()
-    # scheme_name_1 = soup.find("h1", class_="mfh239SchemeName display24").get_text()
+    print(title)
+
+    scheme_name = soup.find("h1", class_="mfh239SchemeName displaySmall").get_text()
+
+    print(scheme_name)
+
+    # scheme_name_1 = soup.find("h1", class_="mfh239SchemeName displaySmall").get_text()
     # print(scheme_name_1)
 
     # scheme_name = "Abhay"

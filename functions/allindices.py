@@ -77,7 +77,10 @@ async def handl_all_indices():
     data = []
     for r in rows:
         td = r.select("td")
-        company = td[0].select("span")[0].get_text()
+        company = td[0].select("div")[0].select("div")[1].select("span")[0].get_text()
+
+        # print(td[0].select("div")[0].select("div")[1].select("span")[0].get_text())
+
         last_trade = td[1].get_text()
         day_chg = td[2].get_text()
         high = td[3].get_text()
