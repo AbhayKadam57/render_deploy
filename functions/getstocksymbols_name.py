@@ -11,17 +11,17 @@ def get_name_symbols(query):
         [
             {
                 "$search": {
-                    "index": "default1",
+                    "index": "default",
                     "text": {"query": f"{query}", "path": {"wildcard": "*"}},
                 }
             }
         ]
     )
-    print(search_results)
+    print("search", search_results)
 
     first_item = list(search_results)
 
-    print("list", first_item[0])
+    print("list", first_item)
 
     symbol = first_item[0]["symbol"]
     print(symbol)
